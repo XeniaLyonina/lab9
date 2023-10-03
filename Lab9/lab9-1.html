@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenia Lyonina</title>
+</head>
+<body>
+    <form>
+        <button onclick="history.back(); return false">Назад</button>
+        <button onclick="history.forward(); return false">Вперед</button>
+        <input type="text" id="inputURL" placeholder="https://">
+        <button onclick="openByUrl(); return false">Открыть</button>
+        <input type="checkbox" id="isNewTab"> В новом окне
+    </form>
+    <iframe id="frame" style="width:480px; height: 500px"></iframe>
+    <script>
+        const inputURL = document.getElementById("inputURL");
+        const isNewTab = document.getElementById("isNewTab");
+        const frame = document.getElementById("frame");
+
+        function openByUrl () {
+            if (isNewTab.checked) {
+                window.open(inputURL.value);
+            } else {
+                frame.src = inputURL.value;
+            }
+        }
+    </script>
+</body>
+</html>

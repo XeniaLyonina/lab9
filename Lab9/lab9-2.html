@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenia Lyonina</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+            background-color: pink;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        
+    </style>
+    <button id="btn">Нажми меня</button>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener("mousemove", () => {
+            changePosition();
+        })
+
+        function getRandomNumber (min, max) {
+            const minInt = Math.ceil(min);
+            const maxInt = Math.floor(max);
+            return Math.floor(Math.random() * (maxInt - minInt + 1)) + minInt;
+        }
+
+        function changePosition () {
+            btn.style.visibility = "hidden";
+            setTimeout(() => btn.style.visibility = "visible", 3000);
+
+            const positionX = getRandomNumber(0, window.innerWidth);
+            const positionY = getRandomNumber(0, window.innerHeight);
+
+            btn.style.top = positionY + "px";
+            btn.style.left = positionX + "px";
+        }
+    </script>
+</body>
+</html>
